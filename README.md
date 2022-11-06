@@ -1,5 +1,5 @@
-# Tehtävät
-**Tehtävät**
+# Ohjelmistotekniikka
+**Tehtävät:**
 <br>
 _Eka viikko:_
 <br>
