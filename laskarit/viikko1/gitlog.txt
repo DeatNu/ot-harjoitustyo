@@ -1,0 +1,113 @@
+commit 866b5000a1ba093b0e4dcedcdad6ad6fcfe697f7
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:57:56 2022 +0200
+
+    vika
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 173ac76f5ca131564b57f2f2e85eccb4326a69bd
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:54:23 2022 +0200
+
+    tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit ab13a1de0bdebab6fe96af0481daf073428905aa
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:51:47 2022 +0200
+
+    muokattu
+
+ eka.txt    | 7 +------
+ kolmas.txt | 3 ++-
+ 2 files changed, 3 insertions(+), 7 deletions(-)
+
+commit d288f6774990b97b7a97cd12ead5998db0d28118
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:50:33 2022 +0200
+
+    uudelleennimetty
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d69e430343577150bd9be311dad06ec8cbb17699
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:49:29 2022 +0200
+
+    poistettu toinen
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 5a3f022dbe372ad886ca5f2a10be945ddccb686c
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:48:43 2022 +0200
+
+    poistettu ja lisätty
+
+ tiedosto.txt | 24 +-----------------------
+ 1 file changed, 1 insertion(+), 23 deletions(-)
+
+commit cb06e5c240943ba1d5cac3c6c77ccb46c4c9d719
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:48:09 2022 +0200
+
+    paljon tekstiä
+
+ tiedosto.txt | 31 ++++++++++++++++++++++++++++++-
+ 1 file changed, 30 insertions(+), 1 deletion(-)
+
+commit f1fc9f62476348606cda2cd358df04cc506ee546
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:47:12 2022 +0200
+
+    hakemisto
+
+ stuff/file.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 83127be56882ced109916e3b4f9d785a2dae2981
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:46:10 2022 +0200
+
+    uutta
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit d3f0011785332935bec3e9623ec22774cb2cf094
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:45:31 2022 +0200
+
+    uusi tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d6810d597fb5599b9ce4a078fba7f74e393fcbaa
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:44:36 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 83dde5ad0193f42f2d3aa430f8355b908141de4a
+Author: Joonatan Strang <joonatan.strang@live.fi>
+Date:   Sun Nov 6 17:43:15 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
