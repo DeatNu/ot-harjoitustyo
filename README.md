@@ -1,7 +1,7 @@
-# Otsikko
-**Eka rivi**
+# Tehtävät
+**Tehtävät**
 <br>
-_toka rivi_
+_Eka viikko:_
 <br>
 [gitlog.txt](https://github.com/DeatNu/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 <br>
