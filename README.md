@@ -11,6 +11,7 @@ _Eka viikko:_
 _Toka viikko:_
 <br>
 [maksukortti](https://github.com/DeatNu/ot-harjoitustyo/tree/master/laskarit/viikko2/maksukortti)
+<br>
 [unicafe](https://github.com/DeatNu/ot-harjoitustyo/tree/master/laskarit/viikko2/unicafe)
 <br>
 <br>
