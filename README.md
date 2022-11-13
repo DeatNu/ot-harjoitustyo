@@ -14,6 +14,8 @@ _Toka viikko:_
 <br>
 [unicafe](https://github.com/DeatNu/ot-harjoitustyo/tree/master/laskarit/viikko2/unicafe)
 <br>
+[coverage](https://github.com/DeatNu/ot-harjoitustyo/blob/master/laskarit/viikko2/coverage.png)
+<br>
 <br>
 **Vaatimusmäärittely:**
 <br>
