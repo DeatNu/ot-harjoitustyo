@@ -24,4 +24,4 @@ _Toka viikko:_
 <br>
 [tyoaikakirjanpito.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 <br>
-[changelog](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
+[changelog.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
