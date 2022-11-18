@@ -17,7 +17,9 @@ _Toka viikko:_
 [coverage](https://github.com/DeatNu/ot-harjoitustyo/blob/master/laskarit/viikko2/coverage.png)
 <br>
 <br>
-**Vaatimusmäärittely:**
+**Vaatimusmäärittely ja työaikakirjanpito:**
 <br>
 <br>
 [vaatimusmaarittely.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+<br>
+[tyoaikakirjanpito.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
