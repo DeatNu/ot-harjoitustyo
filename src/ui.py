@@ -75,14 +75,16 @@ class Main(tk.Tk):
         #select db
         self.db = access.init()
         #show current share (currently shows same number for all)
+        self.instructions = tk.Label(text="Add a payment")
+        self.instructions.grid(row=0,column=0)
         self.label = tk.Label(self, text = str(self.get_sum()))
-        self.label.grid(row=0,column=0)
+        self.label.grid(row=1,column=0)
         #entry for adding payments
         entry = tk.Entry(self)
-        entry.grid(row=0,column=3)
+        entry.grid(row=1,column=2)
         #button for accepting payments
         enter = tk.Button(self, text="Enter", command=lambda: [self.add_to_db(entry), self.change_sum()])
-        enter.grid(row=0,column=2)
+        enter.grid(row=1,column=1)
 
     #update the label
     def change_sum(self):
@@ -103,7 +105,7 @@ class Main(tk.Tk):
         except:
             #label for wrong input
             self.err_label = tk.Label(self, text="Enter only non-negative numerals!")
-            self.err_label.grid(row=1,column=0)
+            self.err_label.grid(row=2,column=0)
         entry.delete(0,"end")
         try:
             #delelte label after a successful payment
