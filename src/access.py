@@ -13,6 +13,7 @@ def init():
 def pay(db, name, amount):
     user_id = db.execute("SELECT id FROM Users WHERE name = (?)",[name]).fetchone()[0]
     db.execute("INSERT INTO payments (user_id, amount) VALUES (?,?)",[user_id, amount])
+    return True
 
 def get_sum(db, name):
     user_id = db.execute("SELECT id FROM Users WHERE name = (?)",[name]).fetchone()[0]
