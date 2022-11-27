@@ -8,7 +8,7 @@
 
 ## Week 4
 - added total balance for both users
-- separate field for users' shares
+- separate fields for users' shares
 - added two types of adding; 50-50 and custom adding
 - 50-50 adding fills two fields at the same time
 - splitting enabled with checkboxes
