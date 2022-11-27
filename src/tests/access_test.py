@@ -1,9 +1,8 @@
+import access
 import login
 import unittest
 import sys
 import os
-import random
-import string
 parent_dir = os.path.abspath(__file__ + "/../../")
 sys.path.append(parent_dir)
 
@@ -20,9 +19,12 @@ class TestInit(unittest.TestCase):
             os.remove(self.db_path_opt)
         except FileNotFoundError:
             pass
-
-    def test_database_created(self):
         db = login.init()
+        login.add_users(db, "test_user1", "test_user2")
+
+    def test_init(self):
+        db = access.init()
+        db = access.init()
         self.assertEqual(str(type(db)), "<class 'sqlite3.Connection'>")
         try:
             os.remove(self.db_path)
@@ -30,24 +32,26 @@ class TestInit(unittest.TestCase):
         except FileNotFoundError:
             pass
 
-    def test_add_users(self):
-        db = login.init()
-        names = self.create_names()
-        login.add_users(db, names[0], names[1])
-        retrieved = db.execute("SELECT name FROM Users").fetchall()
-        self.assertEqual([name[0] for name in retrieved], names)
+    def test_pay(self):
+        db = access.init()
+        self.assertEqual(access.pay(db, "test_user1", 10, 56), True)
         try:
             os.remove(self.db_path)
             os.remove(self.db_path_opt)
         except FileNotFoundError:
             pass
 
-    def create_names(self):
-        length = random.randint(2, 20)
-        names = []
-        for i in range(2):
-            name = ""
-            for j in range(length):
-                name += random.choice(string.printable[0:93])
-            names.append(name)
-        return names
+    def test_get_sum(self):
+        db = access.init()
+        access.pay(db, "test_user1", 40, 23)
+        self.assertEqual(access.get_sum(db, "test_user1"), 23.0)
+        access.pay(db, "test_user1", 5, 10)
+        self.assertEqual(access.get_sum(db, "test_user1"), 33.0)
+        access.pay(db, "test_user2", 0, 33)
+        self.assertEqual(access.get_sum(db, "test_user1"), 0.0)
+        self.assertEqual(access.get_sum(db, "test_user2"), 0.0)
+        try:
+            os.remove(self.db_path)
+            os.remove(self.db_path_opt)
+        except FileNotFoundError:
+            pass

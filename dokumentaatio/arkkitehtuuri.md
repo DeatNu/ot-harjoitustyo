@@ -1,0 +1,1 @@
+![arkkitehtuuri](arkkitehtuuri.png)
