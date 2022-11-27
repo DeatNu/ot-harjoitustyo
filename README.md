@@ -1,27 +1,23 @@
 # Ohjelmistotekniikka
-**Tehtävät:**
+
+#### Dokumentaatio
+- [vaatimusmaarittely.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+- [tyoaikakirjanpito.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+- [changelog.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
+- [arkkitehtuuri.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+#### Tasks
+poetry run invoke start &rarr; käynnistää ohjelman
 <br>
+poetry run invoke test &rarr; suorittaa testit
 <br>
-_Eka viikko:_
+poetry run invoke coverage &rarr; branch-kattavuus
 <br>
-[gitlog.txt](https://github.com/DeatNu/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+poetry run invoke coverage_report &rarr; kattavuusraportti
 <br>
-[komentorivi.txt](https://github.com/DeatNu/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+poetry run invoke open_in_browser &rarr; kattavuusraportti selaimessa (Firefox)
 <br>
-_Toka viikko:_
+poetry run invoke format &rarr; formatointi
 <br>
-[maksukortti](https://github.com/DeatNu/ot-harjoitustyo/tree/master/laskarit/viikko2/maksukortti)
-<br>
-[unicafe](https://github.com/DeatNu/ot-harjoitustyo/tree/master/laskarit/viikko2/unicafe)
-<br>
-[coverage](https://github.com/DeatNu/ot-harjoitustyo/blob/master/laskarit/viikko2/coverage.png)
-<br>
-<br>
-**Vaatimusmäärittely, työaikakirjanpito ja changelog:**
-<br>
-<br>
-[vaatimusmaarittely.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
-<br>
-[tyoaikakirjanpito.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
-<br>
-[changelog.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
+poetry run invoke lint &rarr; linttaus
+
