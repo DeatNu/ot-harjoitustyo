@@ -21,3 +21,5 @@ poetry run invoke format &rarr; formatointi
 <br>
 poetry run invoke lint &rarr; linttaus
 
+#### Release:
+[Project release](https://github.com/DeatNu/ot-harjoitustyo/releases/tag/viikko5)
