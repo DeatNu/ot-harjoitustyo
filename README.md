@@ -6,20 +6,22 @@
 - [changelog.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 - [arkkitehtuuri.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-#### Tasks
-poetry run invoke start &rarr; käynnistää ohjelman
+#### Käyttö
+Ladattuasi ohjelman suorita komento _poetry install_. Tämän jälkeen voit käyttää seuraavia komentoja
+
+_poetry run invoke start_ &rarr; käynnistää ohjelman
 <br>
-poetry run invoke test &rarr; suorittaa testit
+_poetry run invoke test_ &rarr; suorittaa testit
 <br>
-poetry run invoke coverage &rarr; branch-kattavuus
+_poetry run invoke coverage_ &rarr; branch-kattavuus
 <br>
-poetry run invoke coverage_report &rarr; kattavuusraportti
+_poetry run invoke coverage_report_ &rarr; kattavuusraportti
 <br>
-poetry run invoke open_in_browser &rarr; kattavuusraportti selaimessa (Firefox)
+_poetry run invoke open_in_browser_ &rarr; kattavuusraportti selaimessa (Firefox)
 <br>
-poetry run invoke format &rarr; formatointi
+_poetry run invoke format_ &rarr; formatointi
 <br>
-poetry run invoke lint &rarr; linttaus
+_poetry run invoke lint_ &rarr; linttaus
 
 #### Release:
 [Project release](https://github.com/DeatNu/ot-harjoitustyo/releases/tag/viikko5)
