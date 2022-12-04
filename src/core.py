@@ -1,5 +1,5 @@
 import ui
-import login
+from db import login
 
 
 # pylint expanantions:
@@ -23,8 +23,12 @@ def main():
         login_wdw = ui.Login()
         login_wdw.mainloop()
     # opens main app with selected user
-    main_wdw = ui.Main(login_wdw.names[0])
-    main_wdw.mainloop()
+    try:
+        names = login.fetch_names()
+        main_wdw = ui.Main(login_wdw.names[0], names)
+        main_wdw.mainloop()
+    except IndexError:
+        pass
 
 
 if __name__ == "__main__":
