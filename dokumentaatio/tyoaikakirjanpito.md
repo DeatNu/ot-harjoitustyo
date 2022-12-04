@@ -2,10 +2,11 @@
 
 | Päivä | Aika (tuntia) | Aihe  |
 | :----:|:-----| :-----|
-| 13.11. | 1    | vaatimusmäärittelyn luonti |
-| 18.11. | 5    | skriptit tietokannalle ja ui:lle (ensimmäiset versiot) | 
-| 20.11. | 1    | lisätty summan tarkastus, jotta vältytään virheiltä |
-| 25.11. | 3    | lisätty summan jako kahdella tavalla |
-| 26.11. | 2    | lisätty testejä tietokannalle ja ohjeita pääikkunaan |
-| 27.11. | 1    | siistitty koodia, dokumentaation lisäys |
-| yht   | 13    | | 
+| 13.11. | 1    | Vaatimusmäärittelyn luonti |
+| 18.11. | 5    | Skriptit tietokannalle ja ui:lle (ensimmäiset versiot) | 
+| 20.11. | 1    | Lisätty summan tarkastus, jotta vältytään virheiltä |
+| 25.11. | 3    | Lisätty summan jako kahdella tavalla |
+| 26.11. | 2    | Lisätty testejä tietokannalle ja ohjeita pääikkunaan |
+| 3.12. | 5    | Uusien ominaisuuksien lisäys (katso changelog) |
+| 4.12. | 5    | Koodin siistiminen, testien luonti |
+| yht   | 22    | | 

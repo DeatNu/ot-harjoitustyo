@@ -1,17 +1,31 @@
-## Week 3
+## Viikko 3
 
-- added a script for creating a database and users
-- added a script to add payments and fetch payment amounts
-- added 3 elements to ui; window for creating users, another for login and third for main app
-- added a core script to run the program
-- added tests for creating a database and adding users
+- Lisätty skripti uusille tietokannoille ja käyttäjien lisäykselle
+- Lisätty skipti maksujen lisäämiselle ja maksujen hakemiselle tietokannasta
+- Lsiätty 3 UI-elementtiä; ikkuna käyttäjien luomiselle, toinen sisäänkirjautumiseen ja kolmas pääohjelman käytölle
+- Lisätty pääohjelma, jolla sovellus pyörii
+- Lisätty testejä tietokannan perustamiselle ja käyttäjien lisäämiselle
 
-## Week 4
-- added total balance for both users
-- separate fields for users' shares
-- added two types of adding; 50-50 and custom adding
-- 50-50 adding fills two fields at the same time
-- splitting enabled with checkboxes
-- renamed the database
-- new test for module access.py
-- new labels
+## Viikko 4
+- Lisätty nettorahamäärä kummallekin käyttäjälle
+- Lisätty erilliset kentät maksuosuuksille
+- Lisätty kaksi jakamistyyppiä; 50-50 ja vapaa jakaminen
+- Lisätty 50-50 jakamiselle reaaliaikainen täyttö toiseen kenttään
+- Lisätty jakamistavan muutos checkboxeilla
+- Uudelleennimetty tietokanta
+- Uusi teste access.py:lle
+- Uusia labeleita
+
+## Viikko 5
+- Parannettu checkboxien toimintaa
+- Lisätty uusia labeleita
+- Korjattu virheviesti maksua lisättäessä
+- Käyttäjien nimet näkyvät kenttien yläpuolella
+- Lisätty listox, jossa näkyy kaikki maksut
+- Listboxiin lisätty scrollbar
+- 50-50 jakaminen toimii nyt kumpaankin suuntaan
+- Koodi jaettu paremmin funktioiden avulla
+- Kansiorakenne muutettu
+- Lisää testejä tietokantoihin liittyen
+- Suuret summat muutetaan nyt kymmenpotenssimuotoon, jotta ikkunan mittasuhteet eivät hajoa
+- Jatkettu koodin kommentointia
