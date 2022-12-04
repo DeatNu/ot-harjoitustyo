@@ -25,3 +25,8 @@ def fetch_names():
     names = db.execute("SELECT name FROM Users").fetchall()
     names = [name[0] for name in names]
     return names
+
+
+def validate_name(name):
+    names = fetch_names()
+    return name in names

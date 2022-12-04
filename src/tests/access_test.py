@@ -69,3 +69,48 @@ class TestInit(unittest.TestCase):
             os.remove(self.db_path_opt)
         except FileNotFoundError:
             pass
+
+    def test_convert_names(self):
+        user1 = "test_12"
+        other1 = "test_45"
+        name1, name2 = access.convert_names(user1, [user1, other1])
+        self.assertEqual((name1, name2), (user1+"'s", other1+"'s"))
+        user1 = "test_56"
+        other1 = "test_14"
+        name1, name2 = access.convert_names(user1, [other1, user1])
+        self.assertEqual((name1, name2), (user1+"'s", other1+"'s"))
+        user1 = "Jonas"
+        other1 = "Jacks"
+        name1, name2 = access.convert_names(user1, [user1, other1])
+        self.assertEqual((name1, name2), (user1+"'", other1+"'"))
+        try:
+            os.remove(self.db_path)
+            os.remove(self.db_path_opt)
+        except FileNotFoundError:
+            pass
+
+    def test_pay_invalid(self):
+        db = access.init()
+        user = "test_user1"
+        shares = [(-1, 1), (1, -1), ("f", 1), ("", 4), (56, ""), (1, "67f")]
+        for share in shares:
+            response = access.pay(db, user, share[0], share[1])
+            self.assertEqual(response, False)
+        try:
+            os.remove(self.db_path)
+            os.remove(self.db_path_opt)
+        except FileNotFoundError:
+            pass
+
+    def test_get_sum_large_number(self):
+        db = access.init()
+        access.pay(db, "test_user1", 1, 230_000_000_000)
+        self.assertEqual(access.get_sum(db, "test_user1"), "2.30E+11")
+        db = access.init()
+        access.pay(db, "test_user1", 1, 240_000_000_000)
+        self.assertEqual(access.get_sum(db, "test_user1"), "4.70E+11")
+        try:
+            os.remove(self.db_path)
+            os.remove(self.db_path_opt)
+        except FileNotFoundError:
+            pass

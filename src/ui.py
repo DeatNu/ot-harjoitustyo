@@ -1,7 +1,6 @@
 import tkinter as tk
 import os.path
 from db import access
-from decimal import Decimal
 
 
 class Login(tk.Tk):
@@ -50,9 +49,15 @@ class Login(tk.Tk):
     def get_name(self, entry):
         # fetch username from entry
         name = entry.get()
+        if len(name) < 1:
+            return
         # delete entry
         entry.delete(0, "end")
         # add name to name list
+        if self.first:
+            if len(self.names) > 0:
+                if name == self.names[0]:
+                    return
         self.names.append(name)
         # close window if right amount of names is given
         # N_O_T_E: app doesn't currently check if name is valid
@@ -87,7 +92,7 @@ class Main(tk.Tk):
 
     def frame(self):
         # fetch data for the listbox
-        data = self.get_transactions()
+        data = access.get_transactions(self.db)
         # initialize the frame
         self.frame1 = tk.Frame(self)
         self.frame1.grid(row=5, column=0, columnspan=4)
@@ -123,7 +128,7 @@ class Main(tk.Tk):
     # update the label and the lsitbox
 
     def change_sum(self):
-        new_amount = self.get_sum()
+        new_amount = access.get_sum(self.db, self.user)
         self.label.config(text=str(new_amount))
         # listbox is cleared and filled with updated data
         self.Lb1.delete(0, "end")
@@ -132,52 +137,22 @@ class Main(tk.Tk):
     # adds payments to the db
     def add_to_db(self):
         # check for the validity of the payment
-        try:
-            own_share = self.entry1.get()
-            others_share = self.entry2.get()
-            own_share = float(own_share)
-            others_share = float(others_share)
-            if own_share < 0 or others_share < 0:
-                raise ValueError
-            else:
-                # add payment, return True if successful
-                response = access.pay(self.db, self.user,
-                                      own_share, others_share)
-                self.entry1.delete(0, "end")
-                self.entry2.delete(0, "end")
-        except:
-            try:
-                # if label exists/has existed, destroy it before
-                # creating a new one (otherwise it cannot be
-                # destoyed again)
-                if self.err_label:
-                    self.err_label.destroy()
-            except:
-                pass
-            # label for wrong input
-            self.err_label = tk.Label(
-                self, text="Enter two non-negative numerals!")
-            self.err_label.grid(row=3, column=0, columnspan=3, sticky="w")
-        # clear entries
+        own_share = self.entry1.get()
+        others_share = self.entry2.get()
+        response = access.pay(self.db, self.user, own_share, others_share)
         self.entry1.delete(0, "end")
         self.entry2.delete(0, "end")
         try:
-            # delete label after a successful payment
-            if response:
-                self.err_label.destroy()
+            self.err_label.destroy()
         except:
             pass
-
-    # fetch the sum from the db
-    def get_sum(self):
-        amount = access.get_sum(self.db, self.user)
-        amount = float(amount)
-        # if value is very large, change to scientif notation
-        if amount > 100_000_000:
-            amount = '%.2E' % Decimal(amount)
-        return amount
+        if not response:
+            self.err_label = tk.Label(
+                self, text="Enter two non-negative numerals!")
+            self.err_label.grid(row=3, column=0, columnspan=3, sticky="w")
 
     # make sure that only one checkbutton is available for the user
+
     def splitting(self):
         if self.v1.get() == 1:
             self.c2.config(state="disabled")
@@ -192,16 +167,12 @@ class Main(tk.Tk):
             self.c2.config(state="disabled")
             self.c1.invoke()
 
-    # gets payment data
-
-    def get_transactions(self):
-        data = access.get_transactions(self.db)
-        return data
-
     # gets new data after a new payment
     # and updates the listbox
+
     def update_transactions(self):
-        data = self.get_transactions()
+        # payment data
+        data = access.get_transactions(self.db)
         if data is not None:
             for i in data:
                 self.Lb1.insert("end", i)
@@ -220,19 +191,7 @@ class Main(tk.Tk):
     # if name ends in s/S, only an apostrophe is added
     # active user displayed on left
     def name_labels(self):
-        if self.user != self.names[0]:
-            self.names[0], self.names[1] = self.names[1], self.names[0]
-
-        if self.names[0][-1] == "s" or self.names[0][-1] == "S":
-            name1 = self.names[0]+"'"
-        else:
-            name1 = self.names[0]+"'s"
-
-        if self.names[1][-1] == "s" or self.names[1][-1] == "S":
-            name2 = self.names[1]+"'"
-        else:
-            name2 = self.names[1]+"'s"
-
+        name1, name2 = access.convert_names(self.user, self.names)
         self.entry_label1 = tk.Label(self, text=f"{name1} share")
         self.entry_label1.grid(row=0, column=2)
         self.entry_label2 = tk.Label(self, text=f"{name2} share")
@@ -246,7 +205,8 @@ class Main(tk.Tk):
         self.instructions = tk.Label(text="Add a payment    ")
         self.instructions.grid(row=0, column=1)
         # show current share
-        self.label = tk.Label(self, text=str(self.get_sum()))
+        self.label = tk.Label(self, text=str(
+            access.get_sum(self.db, self.user)))
         self.label.grid(row=1, column=0)
         # maintains constant window size for self.err_label
         self.empty_label = tk.Label(self)

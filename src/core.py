@@ -25,8 +25,9 @@ def main():
     # opens main app with selected user
     try:
         names = login.fetch_names()
-        main_wdw = ui.Main(login_wdw.names[0], names)
-        main_wdw.mainloop()
+        if login.validate_name(login_wdw.names[0]):
+            main_wdw = ui.Main(login_wdw.names[0], names)
+            main_wdw.mainloop()
     except IndexError:
         pass
 
