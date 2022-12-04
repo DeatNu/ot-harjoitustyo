@@ -1,4 +1,4 @@
 #### Sovellusarkkitehtuuri:
-![arkkitehtuuri](arkkitehtuuri.png)
+![arkkitehtuuri](architecture.png)
 #### Sekvenssikaavio pääohjelmalle (core):
 ![sekvenssikaavio](sequence.png)
