@@ -1,10 +1,8 @@
-import access
-import login
 import unittest
 import sys
 import os
-parent_dir = os.path.abspath(__file__ + "/../../")
-sys.path.append(parent_dir)
+from db import access
+from db import login
 
 
 class TestInit(unittest.TestCase):
@@ -50,6 +48,22 @@ class TestInit(unittest.TestCase):
         access.pay(db, "test_user2", 0, 33)
         self.assertEqual(access.get_sum(db, "test_user1"), 0.0)
         self.assertEqual(access.get_sum(db, "test_user2"), 0.0)
+        try:
+            os.remove(self.db_path)
+            os.remove(self.db_path_opt)
+        except FileNotFoundError:
+            pass
+
+    def test_transactions(self):
+        db = access.init()
+        access.pay(db, "test_user1", 100, 10)
+        access.pay(db, "test_user1", 5, 10)
+        access.pay(db, "test_user2", 0, 33)
+        access.pay(db, "test_user2", 40, 40)
+        data = access.get_transactions(db)
+        self.assertEqual(data, [("test_user1", 100.0, 10.0), ("test_user1",
+                         5.0, 10.0), ("test_user2", 0.0, 33.0), ("test_user2", 40.0, 40.0)])
+        print(data)
         try:
             os.remove(self.db_path)
             os.remove(self.db_path_opt)

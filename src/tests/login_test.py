@@ -1,11 +1,10 @@
-import login
+#import login
 import unittest
 import sys
 import os
 import random
 import string
-parent_dir = os.path.abspath(__file__ + "/../../")
-sys.path.append(parent_dir)
+from db import login
 
 
 class TestInit(unittest.TestCase):
@@ -51,3 +50,15 @@ class TestInit(unittest.TestCase):
                 name += random.choice(string.printable[0:93])
             names.append(name)
         return names
+
+    def test_fetch_names(self):
+        db = login.init()
+        names = self.create_names()
+        login.add_users(db, names[0], names[1])
+        name1, name2 = login.fetch_names()
+        self.assertEqual((name1, name2), (names[0], names[1]))
+        try:
+            os.remove(self.db_path)
+            os.remove(self.db_path_opt)
+        except FileNotFoundError:
+            pass
