@@ -1,5 +1,6 @@
 # Ohjelmistotekniikka
 
+Tässä repositoriossa on velanhallintatyökalun lähdekoodi. Tällä sovelluksella (Pyshare) voi pitää kirjaa velasta esim. kaverin tai kumppanin kanssa. Sovellukseen voi lisätä kummankin osapuolen osuuden maksusta, nähdä oman velkatilanteen, sekä selata maksuja.
 #### Dokumentaatio
 - [vaatimusmaarittely.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [tyoaikakirjanpito.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
