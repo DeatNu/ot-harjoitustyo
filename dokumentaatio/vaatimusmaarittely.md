@@ -11,9 +11,11 @@ Sovelluksella voi pitää kirjaa käyttäjien menoista. Sovellukseen ilmoitetaan
 - Pääikkuna, jossa näkee rahamäärän, jonka toinen on velkaa sinulle tai sinä hänelle (tehty)
 - Vihreä väri: käyttäjällä on saatavia, punainen väri: käyttäjä velkaa toiselle
 - Pääikkunassa myös maksunlisäys, jossa voi ilmoittaa summan ja kommentin maksuun liittyen (1/2 tehty)
+- Lista maksuista (osuudet ja kommentti) (1/2 tehty)
+- Automaattinen 50-50 jako (tehty)
 
 ### Sovelluslogiikka
-- Pääsy tietokantoihin
+- Pääsy tietokantoihin (tehty)
 - Salasana ja sen varmistaminen
 
 ### Tietokannat
@@ -24,4 +26,3 @@ Sovelluksella voi pitää kirjaa käyttäjien menoista. Sovellukseen ilmoitetaan
 - Usemman käyttäjän muodostama ryhmä, jäsenten lisäys jälkikäteen
 - Profiilin personointi (esim. profiilikuva)
 - Asetukset (esim. nimen muokkaus, jäsenen tai ryhmän poisto, saldon nollaus)
-- Lista maksuista (osuudet ja kommentti)
