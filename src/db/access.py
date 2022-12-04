@@ -41,7 +41,7 @@ def get_sum(db, name):  # pylint: disable=invalid-name
                          user_id]).fetchone()[0]
     debt = db.execute("SELECT IFNULL(SUM(others_share),0) FROM Payments WHERE user_id <> (?)", [
                       user_id]).fetchone()[0]
-    amount = surplus-debt
+    amount = round(float(surplus-debt),2)
     if amount > 100_000_000:
         amount = f"{Decimal(amount):.2E}"
     return amount
