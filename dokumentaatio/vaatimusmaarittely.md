@@ -9,17 +9,17 @@ Sovelluksella voi pitää kirjaa käyttäjien menoista. Sovellukseen ilmoitetaan
 ### Käyttöliittymä
 - Kirjautumisikkuna, jossa voi valita käyttäjän (tehty)
 - Pääikkuna, jossa näkee rahamäärän, jonka toinen on velkaa sinulle tai sinä hänelle (tehty)
-- Vihreä väri: käyttäjällä on saatavia, punainen väri: käyttäjä velkaa toiselle
-- Pääikkunassa myös maksunlisäys, jossa voi ilmoittaa summan ja kommentin maksuun liittyen (1/2 tehty)
-- Lista maksuista (osuudet ja kommentti) (1/2 tehty)
+- Vihreä väri: käyttäjällä on saatavia, punainen väri: käyttäjä velkaa toiselle (tehty)
+- Pääikkunassa myös maksunlisäys, jossa voi ilmoittaa summan ja kommentin maksuun liittyen (tehty)
+- Lista maksuista (osuudet ja kommentti) (tehty)
 - Automaattinen 50-50 jako (tehty)
 
 ### Sovelluslogiikka
 - Pääsy tietokantoihin (tehty)
-- Salasana ja sen varmistaminen
+- Salasana ja sen varmistaminen (tehty)
 
 ### Tietokannat
-- Ainakin yksi SQL-taulu, jossa maksajan nimi, rahamäärä, kommentti (esim. "sähkölasku", "ravintolareissu") (melkein tehty)
+- Ainakin yksi SQL-taulu, jossa maksajan nimi, rahamäärä, kommentti (esim. "sähkölasku", "ravintolareissu") (tehty)
 
 ## Jatkokehitysideoita
 - Rahamäärän jako manuaalisesti (esim. 70-30 eikä aina vain puoliksi) (tehty)

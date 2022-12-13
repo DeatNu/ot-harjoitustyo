@@ -51,7 +51,7 @@ Käyttöliittynä koostuu kolmesta eri ikkunasta, jotka ovat käytössä eri aik
 Yllä on kuvattu sovelluksen rakennetta. Isolla alkukirjaimella alkavat nimet ovat luokkia ja pienellä alkavat luokattomia tiedostoja. Poikkeuksena ovat Table_-alkuiset tiedostot, jotka ovat SQL-tauluja.
 &nbsp; <br>
 &nbsp; <br>
-![sequence](combined.png)
+![sequence](sequence.png)
 &nbsp; <br>
 Yllä on kuvattu sovelluksen ensimmäistä käyttökertaa pääohjelman (core.py) näkökulmasta. Voit klikata kuvaa avataksesi suuremman näkymän.
 &nbsp; <br>
