@@ -7,8 +7,8 @@ Tässä repositoriossa on velanhallintatyökalun lähdekoodi. Tällä sovellukse
 - [tyoaikakirjanpito.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 - [changelog.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 - [arkkitehtuuri.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
-- [arkkitehtuurikuvaus](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuurikuvaus.md)
-- [kayttöohje](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+- [arkkitehtuurikuvaus.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuurikuvaus.md)
+- [kayttoohje.md](https://github.com/DeatNu/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
 #### Käyttö
 Ladattuasi ohjelman suorita komento _poetry install_. Tämän jälkeen voit käyttää seuraavia komentoja
@@ -29,4 +29,5 @@ _poetry run invoke lint_ &rarr; linttaus
 
 #### Release:
 [Project release v1.0](https://github.com/DeatNu/ot-harjoitustyo/releases/tag/viikko5)
+<br>
 [Project release v2.0](https://github.com/DeatNu/ot-harjoitustyo/releases/tag/viikko6)
