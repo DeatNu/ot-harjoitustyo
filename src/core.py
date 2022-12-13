@@ -1,4 +1,3 @@
-import sqlite3
 from ui import ui_main
 from ui import ui_login
 from db import login

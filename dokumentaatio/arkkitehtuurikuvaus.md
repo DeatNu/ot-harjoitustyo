@@ -53,6 +53,16 @@ Yllä on kuvattu sovelluksen rakennetta. Isolla alkukirjaimella alkavat nimet ov
 &nbsp; <br>
 ![sequence](combined.png)
 &nbsp; <br>
-Yllä on kuvattu sovelluksen ensimmäistä käyttökertaa pääohjelman (core.py) näkökulmasta.
+Yllä on kuvattu sovelluksen ensimmäistä käyttökertaa pääohjelman (core.py) näkökulmasta. Voit klikata kuvaa avataksesi suuremman näkymän.
+&nbsp; <br>
 
+
+## Turvallisuus
+&nbsp; <br>
+Käyttäjien luomat salasanat tiivistetään (hashed) satunnaisen salt-bittijonon kanssa. Tiivistetty (hashed) salasana ja salt pidetään tallessa, ja näiden avulla voidaan turvallisesti tarkistaa käyttäjän henkilöllisyys. Vaikka ulkopuolinen taho pääsisi käsiksi tietokantaan, hän ei saa sieltä salasanoja. Lisäksi kirjautuessa sovellukseen ovat salasanat peitettyivä "*"-symboleilla, jotta kukaan ei pääse näkemään salasanaa ruudulta.
+&nbsp; <br>
+## Tallennus
+&nbsp; <br>
+Sovellus käyttää tietojen tallennuksen SQL-tietokantaa. Tietokanta jakautuu kahteen tauluun, josta ensimmäiseen tallennetaan käyttäjän id, nimi, tiivistetty (hashed) salasana ja salt. <br>
+Toisesta taulusta löytyy referenssi käyttäjän id:seen, maksun osuudet käyttäjittäin, sekä vaihtoehtoinen kommentti maksuun liittyen.
 

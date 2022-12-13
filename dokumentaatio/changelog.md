@@ -29,3 +29,12 @@
 - Lisää testejä tietokantoihin liittyen
 - Suuret summat muutetaan nyt kymmenpotenssimuotoon, jotta ikkunan mittasuhteet eivät hajoa
 - Jatkettu koodin kommentointia
+
+## Viikko 6
+- Lisätty mahdollisuus tarkistaa sovellukseen lisätyt käyttäjänimet kirjautuessa
+- Jaettu ui:hin liittyvät asiat kahteen tiedostoon ja luotu näille oma kansio
+- Käyttäjä luo nyt myös salasanan
+- Salasana piilotetaan kirjautuessa "*"-merkeillä
+- Salasana tiivistetään ("hashed") ennen tietokantaan viemistä saltin kanssa
+- Summa värjätty tilanteen mukaan; vihreä; käyttäjä on maksanut enemmän, punainen -> käyttäjä velkaa toiselle, musta -> tasatilanne
+- Aloitettu docstringien lisäys

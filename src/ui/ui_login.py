@@ -86,6 +86,7 @@ class Login(tk.Tk):
             self.user_label2.grid(row=4, column=0, columnspan=5, sticky="W")
         elif self.v1.get() == 0:
             # 0 -> not pressed
+            self.title_label.destroy()
             self.user_label1.destroy()
             self.user_label2.destroy()
 

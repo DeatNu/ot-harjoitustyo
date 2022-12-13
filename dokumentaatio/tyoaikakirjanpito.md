@@ -9,4 +9,7 @@
 | 26.11. | 2    | Lisätty testejä tietokannalle ja ohjeita pääikkunaan |
 | 3.12. | 5    | Uusien ominaisuuksien lisäys (katso changelog) |
 | 4.12. | 5    | Koodin siistiminen, testien luonti |
-| yht   | 22    | | 
+| 10.12. | 3    | Salasanan lisäys, tiivistys & salt |
+| 12.12. | 2    | Värikoodi summaan, tiedosto- ja kansiorakenne |
+| 13.12. | 2    | Docstringit, bugien korjausta |
+| yht   | 29    | | 

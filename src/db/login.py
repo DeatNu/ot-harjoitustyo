@@ -1,6 +1,5 @@
 import sqlite3
 import bcrypt
-import os
 
 # pylint expanantions:
 # -name "db" makes no sense in snake_case format
