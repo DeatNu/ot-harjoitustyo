@@ -13,4 +13,4 @@
 | 12.12. | 2    | Värikoodi summaan, tiedosto- ja kansiorakenne |
 | 13.12. | 2    | Docstringit, bugien korjausta |
 | 17.12. | 3    | Tiedostojen formatointi, kommentointi |
-| yht   | 29    | | 
+| yht   | 32    | | 
