@@ -31,8 +31,10 @@ class UiEntries():
         # start with both in inactive mode
         self.entry1_focus = False
         self.entry2_focus = False
+        self.comment1_entry = tk.Entry(root)
+        self.comment1_entry.grid(row=2, column=3)
 
     def return_attrs(self):
         """A method for returning the arguments for the main window
         """
-        return self.entry1, self.entry2, self.entry1_var, self.entry2_var, self.entry1_focus, self.entry2_focus
+        return self.entry1, self.entry2, self.entry1_var, self.entry2_var, self.entry1_focus, self.entry2_focus, self.comment1_entry

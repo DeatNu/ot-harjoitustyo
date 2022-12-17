@@ -2,6 +2,8 @@ import tkinter as tk
 from db import access
 from ui.ui_frame import UiFrame
 from ui.ui_entries import UiEntries
+from ui.ui_labels import UiLabels
+from ui.ui_check_buttons import UiCheck
 
 
 class Main(tk.Tk):
@@ -31,27 +33,61 @@ class Main(tk.Tk):
         # select (and initialize) db
         self.db = access.init()
         # creates labels
-        self.general_labels()
-        # creates name labels
-        self.name_labels()
+        self.create_labels()
         # creates entry boxes
-        self.entries()
+        self.create_entries()
         # creates the enter button
-        self.enter_button()
+        self.create_enter_button()
         # creates the check buttons
-        self.check_buttons()
+        self.create_check_buttons()
         # creates the frame including a listbox and a scrollbar
-        self.frame()
-        # creates a comment entry and label
-        self.comment_entry()
+        self.create_frame()
 
-    def frame(self):
-        """A method for calling the frame class
+    def create_frame(self):
+        """A method for calling the frame class that creates a frame with a listbox
         """
         # fetch data for the listbox
         data = access.get_transactions(self.db)
         self.payment_frame = UiFrame(data)
         self.payment_frame.grid(row=5, column=0, columnspan=4)
+
+    def create_labels(self):
+        """A method for displaying the labels on the screeen
+        Args:
+            amount: total sum
+            colour : colour of the total sum, 0 -> black, <0 -> red, >0 -> green
+            name1 : active user
+            name2 : unactive user
+        Methods:
+            access.get_sum() : fetches the total sum
+            access.convert_names() : if name ends in s/S, only an apostrophe is added, else 's
+        """
+        amount, colour = access.get_sum(self.db, self.user)
+        name1, name2 = access.convert_names(self.user, self.names)
+        self.entry1_label, self.entry2_label, self.total_label, self.instructions, self.sum_label, self.empty_label, \
+            self.payment_info, self.comment_label = UiLabels(
+                self, name1, name2, amount, colour).return_attrs()
+
+    def create_entries(self):
+        """A method for creating the entry fields
+        """
+        self._entries = UiEntries(
+            self, self.auto_fill, self.callback_entry1_focus, self.callback_entry2_focus)
+        self.entry1, self.entry2, self.entry1_var, self.entry2_var, self.entry1_focus, self.entry2_focus, self.comment1_entry = self._entries.return_attrs()
+
+    def create_check_buttons(self):
+        """A method for creating and initializing the checkbuttons
+        """
+        self.checkbutton_var1, self.checkbutton_var2, self.checkbutton1, self.checkbutton2 = UiCheck(
+            self, self.splitting).return_attrs()
+
+    def create_enter_button(self):
+        """A method for creating a button for accepting payments
+        """
+        # button for accepting payments (accesses the db and updates the label)
+        enter = tk.Button(self, text="Enter", command=lambda: [
+                          self.add_to_db(), self.change_sum()])
+        enter.grid(row=1, column=1)
 
     def auto_fill(self):
         """A method for filling both entry field simultaneously when 50-50
@@ -139,83 +175,3 @@ class Main(tk.Tk):
         """
         self.entry2_focus = True
         self.entry1_focus = False
-
-    def name_labels(self):
-        """A method for dispalying user's names on the screen
-        Args:
-            name1 : active user
-            name2 : unactive user
-        Methods:
-            access.convert_names() : if name ends in s/S, only an apostrophe is added, else 's
-        """
-        name1, name2 = access.convert_names(self.user, self.names)
-        self.entry1_label = tk.Label(self, text=f"{name1} share")
-        self.entry1_label.grid(row=0, column=2)
-        self.entry2_label = tk.Label(self, text=f"{name2} share")
-        self.entry2_label.grid(row=0, column=3)
-
-    def general_labels(self):
-        """A method for displaying most of the labels on the screeen
-        Args:
-            amount: total sum
-            colour : colour of the total sum, 0 -> black, <0 -> red, >0 -> green
-        Methods:
-            access.get_sum() : fetches the total sum
-        """
-        # label for the total
-        self.total_label = tk.Label(self, text="Total   ")
-        self.total_label.grid(row=0, column=0)
-        # instruction label for the user
-        self.instructions = tk.Label(text="Add a payment       ")
-        self.instructions.grid(row=0, column=1)
-        # show current share
-        amount, colour = access.get_sum(self.db, self.user)
-        self.sum_label = tk.Label(self, text=str(amount), fg=colour)
-        self.sum_label.grid(row=1, column=0)
-        # maintains constant window size for self.err_label
-        self.empty_label = tk.Label(self)
-        self.empty_label.grid(row=3, column=0)
-        self.payment_info = tk.Label(text="Name || My share || Other's share")
-        self.payment_info.grid(row=4, column=0, columnspan=4, sticky="W")
-
-    def entries(self):
-        """A method for creating the entry fields
-        """
-        self._entries = UiEntries(
-            self, self.auto_fill, self.callback_entry1_focus, self.callback_entry2_focus)
-        self.entry1, self.entry2, self.entry1_var, self.entry2_var, self.entry1_focus, self.entry2_focus = self._entries.return_attrs()
-
-    def enter_button(self):
-        """A method for creating a button for accepting payments
-        """
-        # button for accepting payments (accesses the db and updates the label)
-        enter = tk.Button(self, text="Enter", command=lambda: [
-                          self.add_to_db(), self.change_sum()])
-        enter.grid(row=1, column=1)
-
-    def check_buttons(self):
-        """a method for creating checkbuttons for switching
-        between splitting modes
-        Split 50-50 -> automatically match shares
-        Choose shares -> manually choose shares
-        """
-        # variables for the checkbuttons (1-on, 0-off)
-        self.checkbutton_var1 = tk.IntVar()
-        self.checkbutton_var2 = tk.IntVar()
-        # checkbuttons
-        self.checkbutton1 = tk.Checkbutton(
-            self, text="Split 50-50", var=self.checkbutton_var1, command=self.splitting)
-        self.checkbutton2 = tk.Checkbutton(
-            self, text="Choose shares", var=self.checkbutton_var2, command=self.splitting, state="disabled")
-        self.checkbutton1.grid(row=2, column=0)
-        self.checkbutton2.grid(row=2, column=1)
-        # start with 1st button selected (split 50-50)
-        self.checkbutton1.invoke()
-
-    def comment_entry(self):
-        """A method for creating an entry field for the comment parameter
-        """
-        self.comment_label = tk.Label(self, text="Comment (optional)")
-        self.comment_label.grid(row=2, column=2)
-        self.comment1_entry = tk.Entry(self)
-        self.comment1_entry.grid(row=2, column=3)
