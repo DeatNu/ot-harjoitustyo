@@ -39,7 +39,7 @@ class Main(tk.Tk):
         # creates the enter button
         self.create_enter_button()
         # creates the check buttons
-        self.create_check_buttons()
+        self.create_enter_button()
         # creates the frame including a listbox and a scrollbar
         self.create_frame()
 

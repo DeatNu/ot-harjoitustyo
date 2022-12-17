@@ -38,3 +38,7 @@
 - Salasana tiivistetään ("hashed") ennen tietokantaan viemistä saltin kanssa
 - Summa värjätty tilanteen mukaan; vihreä; käyttäjä on maksanut enemmän, punainen -> käyttäjä velkaa toiselle, musta -> tasatilanne
 - Aloitettu docstringien lisäys
+
+## Viikko 7
+- Jaettu ui_main.py:n ominaisuuksia erillisiin tiedostoihin koodin selkeyttämiseksi
+- Lisätty docstringejä

@@ -15,14 +15,18 @@ src
  │   └── login.py
  │
  └── ui
+     ├── ui_check_buttons.py
+     ├── ui_frame.py
+     ├── ui_entries.py
+     ├── ui_labels.py
      ├── ui_login.py
      └── ui_main.py
 ```
 \* Vain oleelliset tiedostot ja kansiot
 
 Kansiosta src löytyy tiedosto core.py, joka vastaa sovelluslogiikasta.
-Alikansiosta db löytyy tietokantoihin liittyät tiedostot access.py ja login.py. Kansiosta ui puolestaan löytyy käyttöliittyvään liittyvät tiedostot ui_login.py ja ui_main.py.
-
+Alikansiosta db löytyy tietokantoihin liittyät tiedostot access.py ja login.py. Kansiosta ui puolestaan löytyy käyttöliittyvään liittyvät tiedostot ui_check_buttons.py, ui_frame.py, ui_entries.py, ui_labels.py, ui_login.py ja ui_main.py.
+&nbsp; <br>
 ## Käyttöliittymä
 &nbsp; <br>
 **Uusien käyttäjien luonti** <br>
