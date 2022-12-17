@@ -67,16 +67,16 @@ class Login(tk.Tk):
         enter = tk.Button(self, text="Enter",
                           command=lambda: self.get_name(self.entry))
         enter.grid(row=1, column=0)
-        self.v1 = tk.IntVar()
+        self.checkbutton_var = tk.IntVar()
         self.help = tk.Checkbutton(
-            self, text="Forgot username?", var=self.v1, command=self.reveal_usernames)
+            self, text="Forgot username?", var=self.checkbutton_var, command=self.reveal_usernames)
         self.help.grid(row=1, column=1)
 
     def reveal_usernames(self):
         """A method for showing usernames in the database
         in case the user forgot theirs
         """
-        if self.v1.get() == 1:
+        if self.checkbutton_var.get() == 1:
             # 1 -> pressed
             self.title_label = tk.Label(text="Usernames: ")
             self.title_label.grid(row=2, column=0)
@@ -84,7 +84,7 @@ class Login(tk.Tk):
             self.user_label1.grid(row=3, column=0, columnspan=5, sticky="W")
             self.user_label2 = tk.Label(text=self.usernames[1])
             self.user_label2.grid(row=4, column=0, columnspan=5, sticky="W")
-        elif self.v1.get() == 0:
+        elif self.checkbutton_var.get() == 0:
             # 0 -> not pressed
             self.title_label.destroy()
             self.user_label1.destroy()
