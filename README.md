@@ -31,3 +31,5 @@ _poetry run invoke lint_ &rarr; linttaus
 [Project release v1.0](https://github.com/DeatNu/ot-harjoitustyo/releases/tag/viikko5)
 <br>
 [Project release v2.0](https://github.com/DeatNu/ot-harjoitustyo/releases/tag/viikko6)
+<br>
+[Final release](https://github.com/DeatNu/ot-harjoitustyo/releases/tag/viikko7)
