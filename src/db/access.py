@@ -35,22 +35,25 @@ def pay(db, name, own_share, others_share, comment):  # pylint: disable=invalid-
 
 def get_sum(db, name):  # pylint: disable=invalid-name
     # returns the net of all payments
-    user_id = db.execute("SELECT id FROM Users WHERE name = (?)", [
-                         name]).fetchone()[0]
-    surplus = db.execute("SELECT IFNULL(SUM(others_share),0) FROM Payments WHERE user_id = (?)", [
-                         user_id]).fetchone()[0]
-    debt = db.execute("SELECT IFNULL(SUM(others_share),0) FROM Payments WHERE user_id <> (?)", [
-                      user_id]).fetchone()[0]
-    amount = round(float(surplus-debt), 2)
-    if amount < 0:
-        colour = "red"
-    elif amount > 0:
-        colour = "green"
-    else:
-        colour = "black"
-    if amount > 100_000_000:
-        amount = f"{Decimal(amount):.2E}"
-    return amount, colour
+    try:
+        user_id = db.execute("SELECT id FROM Users WHERE name = (?)", [
+                            name]).fetchone()[0]
+        surplus = db.execute("SELECT IFNULL(SUM(others_share),0) FROM Payments WHERE user_id = (?)", [
+                            user_id]).fetchone()[0]
+        debt = db.execute("SELECT IFNULL(SUM(others_share),0) FROM Payments WHERE user_id <> (?)", [
+                        user_id]).fetchone()[0]
+        amount = round(float(surplus-debt), 2)
+        if amount < 0:
+            colour = "red"
+        elif amount > 0:
+            colour = "green"
+        else:
+            colour = "black"
+        if amount > 100_000_000:
+            amount = f"{Decimal(amount):.2E}"
+        return amount, colour
+    except TypeError:
+        return "0", "black"
 
 
 def get_transactions(db):  # pylint: disable=invalid-name

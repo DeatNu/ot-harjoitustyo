@@ -6,6 +6,7 @@ from ui.ui_labels import UiLabels
 from ui.ui_check_buttons import UiCheck
 
 
+
 class Main(tk.Tk):
     """A class for the main window of the program.
     Args:
@@ -29,7 +30,7 @@ class Main(tk.Tk):
         self.user = username
         # window name, size
         self.title("Pyshare")
-        self.geometry("565x430")
+        self.geometry("630x445")
         # select (and initialize) db
         self.db = access.init()
         # creates labels
@@ -39,7 +40,7 @@ class Main(tk.Tk):
         # creates the enter button
         self.create_enter_button()
         # creates the check buttons
-        self.create_enter_button()
+        self.create_check_buttons()
         # creates the frame including a listbox and a scrollbar
         self.create_frame()
 
@@ -50,6 +51,7 @@ class Main(tk.Tk):
         data = access.get_transactions(self.db)
         self.payment_frame = UiFrame(data)
         self.payment_frame.grid(row=5, column=0, columnspan=4)
+        self.format_string = self.payment_frame.return_func()
 
     def create_labels(self):
         """A method for displaying the labels on the screeen
@@ -78,9 +80,8 @@ class Main(tk.Tk):
     def create_check_buttons(self):
         """A method for creating and initializing the checkbuttons
         """
-        self.checkbutton_var1, self.checkbutton_var2, self.checkbutton1, self.checkbutton2 = UiCheck(
-            self, self.splitting).return_attrs()
-
+        self.checkbutton_var1, self.checkbutton_var2, self.checkbutton1, self.checkbutton2, self.splitting = UiCheck(
+            self).return_attrs()
     def create_enter_button(self):
         """A method for creating a button for accepting payments
         """
@@ -136,22 +137,6 @@ class Main(tk.Tk):
                 self, text="Enter two non-negative numerals!")
             self.err_label.grid(row=3, column=0, columnspan=3, sticky="w")
 
-    def splitting(self):
-        """A helper method for the splitting style
-        Makes sure that only one style is active
-        """
-        if self.checkbutton_var1.get() == 1:
-            self.checkbutton2.config(state="disabled")
-        elif self.checkbutton2["state"] == "disabled":
-            self.checkbutton2.config(state="normal")
-            self.checkbutton1.config(state="disabled")
-            self.checkbutton2.invoke()
-        elif self.checkbutton_var2.get() == 1:
-            self.checkbutton1.config(state="disabled")
-        else:
-            self.checkbutton1.config(state="normal")
-            self.checkbutton2.config(state="disabled")
-            self.checkbutton1.invoke()
 
     def update_transactions(self):
         """A method for updating the listbox containg the payment information
@@ -162,7 +147,7 @@ class Main(tk.Tk):
         if data is not None:
             for i in data:
                 self.payment_frame.payment_listbox.insert(
-                    "end", " ".join(map(str, i)))
+                    "end", self.format_string(i))
 
     def callback_entry1_focus(self):
         """A helper method for turning entry1 active and entry2 unactive
@@ -175,3 +160,5 @@ class Main(tk.Tk):
         """
         self.entry2_focus = True
         self.entry1_focus = False
+
+

@@ -126,3 +126,14 @@ class TestInit(unittest.TestCase):
             os.remove(self.db_path_opt)
         except FileNotFoundError:
             pass
+
+    def test_get_sum_invalid(self):
+        db = access.init()
+        comment = ""
+        access.pay(db, "test_user1", 1, 230_000_000_000, comment)
+        self.assertEqual(access.get_sum(db, "test_user11")[0], "0", "black")
+        try:
+            os.remove(self.db_path)
+            os.remove(self.db_path_opt)
+        except FileNotFoundError:
+            pass

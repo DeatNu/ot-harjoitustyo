@@ -28,11 +28,10 @@ def main():
         usernames = login.fetch_names()
         login_wdw.usernames = usernames
         login_wdw.mainloop()
-    # opens main app with selected user if username and password are correct, else close program
+    # opens main app with selected user
     try:
-        if login.validate_name(login_wdw.names[0]) and login.validate_pwd(login_wdw.names):
-            main_wdw = ui_main.Main(login_wdw.names[0], usernames)
-            main_wdw.mainloop()
+        main_wdw = ui_main.Main(login_wdw.names[0], usernames)
+        main_wdw.mainloop()
     except IndexError:
         pass
 

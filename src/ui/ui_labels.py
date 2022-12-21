@@ -21,7 +21,7 @@ class UiLabels():
         self.entry2_label = tk.Label(root, text=f"{name2} share")
         self.entry2_label.grid(row=0, column=3)
         # label for the total
-        self.total_label = tk.Label(root, text="Total   ")
+        self.total_label = tk.Label(root, text="Balance ")
         self.total_label.grid(row=0, column=0)
         # instruction label for the user
         self.instructions = tk.Label(root, text="Add a payment       ")
@@ -33,7 +33,7 @@ class UiLabels():
         self.empty_label = tk.Label(root)
         self.empty_label.grid(row=3, column=0)
         self.payment_info = tk.Label(
-            root, text="Name || My share || Other's share")
+            root, text="Name                             ||   My share   ||   Other's share   ||   Comment")
         self.payment_info.grid(row=4, column=0, columnspan=4, sticky="W")
         # label and entry field for the optional payment comment
         self.comment_label = tk.Label(root, text="Comment (optional)")

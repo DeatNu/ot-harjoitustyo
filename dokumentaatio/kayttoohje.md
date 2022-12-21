@@ -17,7 +17,7 @@ Käyttäjä voi lisätä maksun kahdella tavalla; hän voi valita tavan __50-50-
 &nbsp; <br>
 Käyttäjä voi myös halutessaan lisätä kommentin, joka liitetään maksun yhteyteen. Maksun lisääjä, hänen osuutensa, toisen osuus sekä mahdollinen kommentti tulevat maksun lisäämisen jälkeen näkyville ruudulla näkyvään kenttään. Maksu lisätään __Enter__-napilla, kun kummassakin kentässä on sallittu summa.
 &nbsp; <br>
-![main window](main_window1.png)
+![main window](main_window.png)
 &nbsp; <br>
 ## Ongelmatilanteet
 &nbsp; <br>

@@ -42,3 +42,6 @@
 ## Viikko 7
 - Jaettu ui_main.py:n ominaisuuksia erillisiin tiedostoihin koodin selkeyttämiseksi
 - Lisätty docstringejä
+- Salasanaa voi nyt yrittää useamman kerran
+- Maksut näkyvät siistimmin
+- Muutettu label total -> balance

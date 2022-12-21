@@ -1,5 +1,6 @@
 import tkinter as tk
 import os
+from db import login
 
 
 class Login(tk.Tk):
@@ -111,21 +112,41 @@ class Login(tk.Tk):
                     return
         self.names.append(name)
         self.config_label()
-        # close window if right amount of names is given
-        # N_O_T_E: app doesn't currently check if name is valid
+        # close window if right amount of names is given / correct password and username are given
         if len(self.names) > 3 and self.first or not self.first and len(self.names) > 1:
+            if not self.first:
+                if not self.validate_password():
+                    self.names = []
+                    self.config_label()
+                    # if en error label exists, it needs to deleted before creating a new one
+                    try:
+                        self.err_label.destroy()
+                    except AttributeError:
+                        pass
+                    self.set_error()
+                    return
             self.destroy()
 
     def config_label(self):
+        if not self.first:
+            self.entry.config(show="")
         """A method for changing the labels
         """
         labels = ["Enter first password: ",
                   "Enter second username: ", "Enter second password: "]
-        labels2 = ["Enter your password: "]
+        labels2 = ["Enter your username", "Enter your password: "]
         if self.first and len(self.names) < 4:
             self.info.config(text=labels[len(self.names)-1])
         elif len(self.names) < 2:
-            self.info.config(text=labels2[len(self.names)-1])
+            self.info.config(text=labels2[len(self.names)])
         if len(self.names) % 2 == 1:
             if not self.first:
                 self.entry.config(show="*")
+
+    def validate_password(self):
+        return login.validate_name(self.names[0]) and login.validate_pwd(self.names)
+
+    def set_error(self):
+        self.err_label = tk.Label(text="Wrong username or password!")
+        self.err_label.grid(row=2,column=1,columnspan=4)
+    
