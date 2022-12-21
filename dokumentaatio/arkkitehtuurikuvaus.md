@@ -41,7 +41,7 @@ Alikansiosta db löytyy tietokantoihin liittyät tiedostot access.py ja login.py
 &nbsp; <br>
 **Pääikkuna** <br>
 &nbsp; <br>
-![Main window](main_window1.png)
+![Main window](main_window.png)
 <br>
 
 Käyttöliittynä koostuu kolmesta eri ikkunasta, jotka ovat käytössä eri aikoihin. Ensimmäinen ikkuna on käytössä vain ensimmäisellä käyttökerralla, kun taas toinen ja kolmas ovat käytössä joka kerta.
